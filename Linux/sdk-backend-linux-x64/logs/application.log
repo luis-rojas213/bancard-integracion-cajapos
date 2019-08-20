@@ -1,0 +1,15 @@
+[2019-06-12T14:48:21.471] [INFO] info - Abriendo puerto com3...
+[2019-06-12T14:48:21.475] [INFO] info - NSU inicial: 123456
+[2019-06-12T14:48:21.476] [INFO] info - Eco: 6
+[2019-06-12T14:48:21.476] [INFO] info - NSU utilizado: 123457
+[2019-06-12T14:48:21.479] [ERROR] error - No se pudo establecer la conexiónError: No such file or directory, cannot open com3
+[2019-06-12T15:33:46.862] [INFO] info - Abriendo puerto com3...
+[2019-06-12T15:33:46.866] [INFO] info - NSU inicial: 123456
+[2019-06-12T15:33:46.866] [INFO] info - Eco: 6
+[2019-06-12T15:33:46.867] [INFO] info - NSU utilizado: 123457
+[2019-06-12T15:33:46.869] [ERROR] error - No se pudo establecer la conexiónError: No such file or directory, cannot open com3
+[2019-06-27T14:59:07.234] [INFO] info - Abriendo puerto com3...
+[2019-06-27T14:59:07.241] [INFO] info - NSU inicial: 1
+[2019-06-27T14:59:07.243] [INFO] info - Eco: 3
+[2019-06-27T14:59:07.243] [INFO] info - NSU utilizado: 000002
+[2019-06-27T14:59:07.248] [ERROR] error - No se pudo establecer la conexiónError: No such file or directory, cannot open com3

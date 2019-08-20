@@ -1,0 +1,16 @@
+{
+  "com": "com3",
+  "reintentos": 3,
+  "transaction_timeout": 1,
+  "server": {
+    "port": 8081
+  },
+  "log": {
+    "maxSize": 5,
+    "backups": 3
+  },
+  "tam":100,
+  "delayTime":100,
+  "baudRate": 9600,
+  "bufferSize": 250
+}

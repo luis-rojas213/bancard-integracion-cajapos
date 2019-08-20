@@ -1,0 +1,17 @@
+{
+  "com": "com1",
+  "reintentos": 3,
+  "transaction_timeout": 1,
+  "server": {
+    "port": 8080
+  },
+  "log": {
+    "maxSize": 5,
+    "backups": 3,
+    "absolutePath": "C:/VM/cajapos-log/app.log"
+  },
+  "tam":100,
+  "delayTime":100,
+  "baudRate": 9600,
+  "bufferSize": 250
+}
