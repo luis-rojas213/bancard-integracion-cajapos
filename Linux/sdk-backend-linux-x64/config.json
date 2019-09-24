@@ -1,5 +1,5 @@
 {
-  "com": "com3",
+  "com": "/dev/ttyUSB0",
   "reintentos": 3,
   "transaction_timeout": 1,
   "server": {
