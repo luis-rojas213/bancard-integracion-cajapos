@@ -1,0 +1,400 @@
+define({ "api": [
+  {
+    "type": "post",
+    "url": "/pos/eco",
+    "title": "Mensaje Eco",
+    "version": "1.3.0",
+    "name": "Eco",
+    "group": "Eco",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Eco",
+            "description": "<p>eco</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"eco\": 2\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"eco\": 2\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n      \"statusCode\": 400,\n      \"error\": \"Bad Request\",\n      \"message\": \"No se pudo establecer conexión con el POS\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error de rango:",
+          "content": "HTTP/1.1 400 Not Found\n{\n     \"statusCode\": 400,\n     \"error\": \"Bad Request\",\n     \"message\": \"Error de rango: 299\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ecoController.js",
+    "groupTitle": "Eco"
+  },
+  {
+    "type": "post",
+    "url": "/pos/descuento",
+    "title": "Enviar descuento",
+    "version": "1.3.0",
+    "name": "Descuento",
+    "group": "Venta",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "BIN",
+            "description": "<p>bin</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "NSU",
+            "description": "<p>nsu</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Monto",
+            "description": "<p>monto</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"bin\": \"4062430000\",\n  \"nsu\": \"000051\",\n  \"monto\" : 150000\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n      \"codigoAutorizacion\": \"575849\",\n      \"nroBoleta\": \"000270613845\",\n      \"codigoComercio\": \"5051107\",\n      \"nombreTarjeta\": \"VISA - PREPAGA - BANCO ITAU PY\",\n      \"pan\": \"1234\",\n      \"mensajeDisplay\": \"APROBADA\",\n      \"saldo\": \"000000150000\",\n      \"nombreCliente\": \"GONZALEZ/JOSE\",\n      \"issuerId\": \"VS\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n        \"statusCode\": 400,\n        \"error\": \"Bad Request\",\n        \"message\": \"No se pudo establecer conexión con el POS\"\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ventasController.js",
+    "groupTitle": "Venta"
+  },
+  {
+    "type": "post",
+    "url": "/pos/venta-ux",
+    "title": "Solicitar venta-ux",
+    "version": "1.3.0",
+    "name": "Venta_Ux",
+    "group": "Venta",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Factura",
+            "description": "<p>facturaNro</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Monto",
+            "description": "<p>monto</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"facturaNro\": 123456789,\n  \"monto\": 4000\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"bin\": \"121530\",\n  \"nsu\": \"999999\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ErrorDeSincronizacion",
+            "description": "<p>NSU distinto entre llamada inicial y de descuento.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TransaccionnCancelada",
+            "description": "<p>La operación fue cancelada desde el pos</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TransaccionRechazada",
+            "description": "<p>La transacción fue rechazada</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ErrorDeComunicacion",
+            "description": "<p>Hubo un error entre la comunicación del pos y la máquina registradora</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n        \"statusCode\": 400,\n        \"error\": \"Bad Request\",\n        \"message\": \"No se pudo establecer conexión con el POS\"\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ventasController.js",
+    "groupTitle": "Venta"
+  },
+  {
+    "type": "post",
+    "url": "/pos/venta/credito",
+    "title": "Venta forzado a crédito",
+    "version": "1.3.0",
+    "name": "Venta_cr_dito",
+    "group": "Venta",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Factura",
+            "description": "<p>facturaNro</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": true,
+            "field": "Cuotas",
+            "description": "<p>cuotas</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": true,
+            "field": "Plan",
+            "description": "<p>plan</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"facturaNro\": 123456789,\n  \"cuotas\" : 12,\n  \"plan\" : 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"bin\":  \"000000121530\",\n  \"nsu\":  \"999999\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n        \"statusCode\": 400,\n        \"error\": \"Bad Request\",\n        \"message\": \"No se pudo establecer conexión con el POS\"\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ventasController.js",
+    "groupTitle": "Venta"
+  },
+  {
+    "type": "post",
+    "url": "/pos/venta/debito",
+    "title": "Venta forzado a débito",
+    "version": "1.3.0",
+    "name": "Venta_d_btio",
+    "group": "Venta",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Factura",
+            "description": "<p>facturaNro</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"facturaNro\": 123456789\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"bin\": \"000000121530\",\n  \"nsu\": \"999999\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n      \"statusCode\": 400,\n      \"error\": \"Bad Request\",\n      \"message\": \"No se pudo establecer conexión con el POS\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ventasController.js",
+    "groupTitle": "Venta"
+  },
+  {
+    "type": "post",
+    "url": "/pos/venta",
+    "title": "Solicitar venta",
+    "version": "1.3.0",
+    "name": "Venta_normal",
+    "group": "Venta",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "Factura",
+            "description": "<p>facturaNro</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": true,
+            "field": "Cuotas",
+            "description": "<p>cuotas</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": true,
+            "field": "Plan",
+            "description": "<p>plan</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"facturaNro\": 123456789,\n  \"cuotas\" : 12,\n  \"plan\" : 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"bin\": \"121530\",\n  \"nsu\": \"999999\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ErrorDeSincronizacion",
+            "description": "<p>NSU distinto entre llamada inicial y de descuento.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TransaccionnCancelada",
+            "description": "<p>La operación fue cancelada desde el pos</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TransaccionRechazada",
+            "description": "<p>La transacción fue rechazada</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ErrorDeComunicacion",
+            "description": "<p>Hubo un error entre la comunicación del pos y la máquina registradora</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Not Found\n{\n        \"statusCode\": 400,\n        \"error\": \"Bad Request\",\n        \"message\": \"No se pudo establecer conexión con el POS\"\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/controllers/ventasController.js",
+    "groupTitle": "Venta"
+  }
+] });

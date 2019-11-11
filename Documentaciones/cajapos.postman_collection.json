@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "e9c0b612-a1a0-48a4-bbe0-cad4bd8912af",
+		"name": "cajapos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8081/pos/venta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facturaNro\" : 213123,\n\t\"plan\": 0,\n\t\"cuotas\": 0\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/venta",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"venta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/venta/credito",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \n        \"facturaNro\": 123456789,\n        \"cuotas\" : 12,\n        \"plan\" : 1\n      \n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/venta/credito",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"venta",
+						"credito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/venta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facturaNro\" : 2131234,\n\t\"plan\": 1,\n\t\"cuotas\": 0\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/venta",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"venta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/descuento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"monto\":100,\n\t\"bin\":\"8600000000\",\n\t\"nsu\":\"000006\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/descuento",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"descuento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/venta-ux",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"monto\":1,\n\t\"facturaNro\" : 987987123\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/venta-ux",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"venta-ux"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/eco",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"eco\": 5\n}\n"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/eco",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"eco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/venta-ux",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"monto\":80,\n\t\"facturaNro\" : 2131236\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/pos/venta-ux",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"venta-ux"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/pos/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8081/pos/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pos",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
